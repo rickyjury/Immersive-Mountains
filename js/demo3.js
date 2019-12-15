@@ -112,7 +112,7 @@ function createLandscape(params){
 
     sunSphere = new THREE.Mesh(
       new THREE.SphereBufferGeometry( 20000, 16, 8 ),
-      new THREE.MeshBasicMaterial( { color: 0xffffff } )
+      new THREE.MeshBasicMaterial( { color: 0x1f0052 } )
     );
     sunSphere.visible = false;
     scene.add( sunSphere );
