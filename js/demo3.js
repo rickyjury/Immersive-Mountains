@@ -61,7 +61,7 @@ function createLandscape(params){
 
   function sceneElements(){
 
-    var geometry = new THREE.PlaneBufferGeometry(100, 400, 400, 400);
+    var geometry = new THREE.PlaneBufferGeometry(100, 400, 200, 400);
 
     var uniforms = {
       time: { type: "f", value: 0.0 },
