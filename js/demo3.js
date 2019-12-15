@@ -34,7 +34,7 @@ function createLandscape(params){
 
   function sceneSetup(){
     scene = new THREE.Scene();
-    var fogColor = new THREE.Color( 0x333333 )
+    var fogColor = new THREE.Color( 0xffebef )
     scene.background = fogColor;
     scene.fog = new THREE.Fog(fogColor, 0, 400);
 
@@ -45,7 +45,7 @@ function createLandscape(params){
     camera.position.y = 8;
     camera.position.z = 4;
     
-    ambientLight = new THREE.AmbientLight(0xffffff, 1);
+    ambientLight = new THREE.AmbientLight(0xffebef, 1);
     scene.add(ambientLight)
     
 
