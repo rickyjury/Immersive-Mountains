@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Interactive Landscape | Demo 1 | Codrops</title>
+		<title>Interactive Landscape | Demo 3 | Codrops</title>
 		<meta name="description" content="An interactive animated landscape built with three.js" />
 		<meta name="keywords" content="three.js, javascript, webgl, animation, landscape, interactive, demo" />
 		<meta name="author" content="Codrops" />
@@ -12,7 +12,7 @@
 		<link rel="stylesheet" type="text/css" href="css/base.css" />
 		<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
 	</head>
-	<body class="demo-1">
+	<body class="demo-3">
 		<main>
 			<div class="frame">
 				<div class="frame__title-wrap">
@@ -22,9 +22,9 @@
 				<a class="frame__github" href="https://github.com/codrops/InteractiveLandscape/">GitHub</a>
 				<a class="frame__previous" href="https://tympanus.net/Development/AmbientCanvasBackgrounds/">Previous demo</a>
 				<div class="frame__demos">
-					<a href="index.html" class="frame__demo frame__demo--current">demo 1</a>
+					<a href="index.html" class="frame__demo">demo 1</a>
 					<a href="index2.html" class="frame__demo">demo 2</a>
-					<a href="index3.html" class="frame__demo">demo 3</a>
+					<a href="index3.html" class="frame__demo frame__demo--current">demo 3</a>
 				</div>
 			</div>
 			<div class="content">
@@ -212,6 +212,7 @@
 					#define PI 3.1415926535897932384626433832795
 					
 					uniform float time;
+					uniform float scroll;
 					uniform float maxHeight;
 					uniform float speed;
 					uniform float distortCenter;
@@ -236,7 +237,7 @@
 
 						
 						vec3 noiseIn = vec3(uv, 1.0)*10.0;
-						float noise = cnoise(vec3(noiseIn.x, noiseIn.y + t, noiseIn.z));
+						float noise = cnoise(vec3(noiseIn.x, noiseIn.y + scroll, noiseIn.z));
 						noise += 1.0;
 						float h = noise;
 						float angle = (uv.x - centerOff) * PI;
@@ -273,7 +274,7 @@
 
 					void main(){
 
-						vec2 stripPos = vec2( 0.0, vDisplace );
+						vec2 stripPos = vec2( 0.0, vDisplace * (sin(time)*0.5+0.7) );
 						vec4 stripColor = texture2D( pallete, stripPos );
 						stripColor *= pow(1.0-vDisplace, 1.0);
 
@@ -296,6 +297,6 @@
 		<script src="js/vendor/hammer.min.js"></script>
 		<script src="js/vendor/charming.min.js"></script>
 		<script src="js/vendor/TweenMax.min.js"></script>
-		<script src="js/demo1.js"></script>
+		<script src="js/demo3.js"></script>
 	</body>
 </html>
